@@ -38,12 +38,12 @@ public class AddFamilyIT extends BaseLoginTest {
 
 	public void addFamily() {
 
-	//	getDriver().get( "http://localhost:8080/amplify_webui/familyInsured" );
-		getDriver().get( "https://test.amplify.calcfocus.net/achieve/familyInsured/");
+		getDriver().get( "http://localhost:8080/reframe_webui/familyInsured" );
+	//	getDriver().get( "https://test.amplify.calcfocus.net/achieve/familyInsured/");
 		AddFamilyView family = $( AddFamilyView.class ).first();
 		family.addFamily(  );
 		family.getSuffix().selectByText("Sr.");
-		family.getGender().selectItemByIndex( 0 );
+		family.getGender().selectItemByIndex( 1 );
 		family.getDateOfBirth().setDate( LocalDate.of( 1960, 10, 15 ) );
 		family.getTobaccoUse().selectByText( "Tobacco" );
 		family.getHealthStatus().selectByText("Same as my peers");
