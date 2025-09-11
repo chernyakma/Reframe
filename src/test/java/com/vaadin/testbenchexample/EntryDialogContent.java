@@ -186,6 +186,12 @@ public class EntryDialogContent extends TestBenchElement {
 		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("RelationToPrimaryInsured");
 	}
 
+	//fund
+	protected SelectElement fundName(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("FundCode");
+	}
+
+
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber){
 	firstName().sendKeys(firstName);
 	lastName().sendKeys(lastName);

@@ -29,11 +29,23 @@ public class ApplicationView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Application" ).$( DatePickerElement.class ).id( "ApplicationReceivedDate" );
 
 	}
+	protected DatePickerElement policyIssueDate() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( DatePickerElement.class ).id( "IssueDate" );
+
+	}
 	protected SelectElement paymentMethod() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( SelectElement.class ).id( "PaymentMethod" );
 
 	}
+
+	protected TextFieldElement draftDay() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Policy" ).$( TextFieldElement.class ).id( "DraftDay");
+
+	}
+
 
 	protected DatePickerElement applicationSignedDate() {
 
@@ -43,7 +55,7 @@ public class ApplicationView extends TestBenchElement {
 
 	protected ButtonElement downloadButton() {
 
-		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "document-page" ).first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$( TestBenchElement.class ).id( "componentResult" ).$( ButtonElement.class ).get( 1 );
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "document-page" ).first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$( TestBenchElement.class ).id( "componentResult" ).$( ButtonElement.class ).first();
 	}
 
 	protected ButtonElement saveButton() {
@@ -59,6 +71,14 @@ public class ApplicationView extends TestBenchElement {
 	protected RadioButtonGroupElement cashWithApplication() {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "InitialPayment" ).$( RadioButtonGroupElement.class ).id( "CashReceivedWithApplicationIndicator" );
+	}
+	protected ButtonElement addFundButton() {
+
+		return  $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "DefaultFundAllocationsSection" ).$(TestBenchElement.class).id("DefaultFundAllocations").$( ButtonElement.class ).first();
+}
+	protected SelectElement applicationStatus() {
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "Application" ).$(SelectElement.class ).id( "ApplicationStatus" );
 	}
 
 	protected DatePickerElement cashWithApplicationReceivedDate() {

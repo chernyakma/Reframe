@@ -1,5 +1,7 @@
 package com.vaadin.testbenchexample;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.openqa.selenium.Keys;
 
@@ -77,6 +79,30 @@ public class AddressView extends TestBenchElement
 		getCity().sendKeys( city );
 		getZip().sendKeys( zip );
 	}
+
+
+
+		//	waitUntil( ExpectedConditions.textToBePresentInElement( getFirstName(),"Harry"));
+		//	getSaveButton().click();
+
+		//
+		private static final int ADDRESS_COLS = 4; // line1, line2, city, zip
+
+	public void addAddress(int rowIndex) {
+		// Zero-based: 0 = first row, 1 = second row, ...
+		String[] r = ExcelUtils.readExcelRow(
+				"src/test/resources/ReframeAddressdata.xlsx",
+				ADDRESS_COLS,
+				rowIndex
+		); // returns exactly 4 strings; blanks preserved as ""
+
+		// If these are Vaadin TextFieldElements, use setValue; otherwise clear()+sendKeys
+		getLine1().sendKeys(r[0]);  // blank stays blank
+		getLine2().sendKeys(r[1]);
+		getCity().sendKeys(r[2]);
+		getZip().sendKeys(r[3]);
+	}
+
 
 
 	public void clearAddress(){

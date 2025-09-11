@@ -26,13 +26,13 @@ import static java.sql.DriverManager.getDriver;
 
 public abstract class BaseLoginTest extends TestBenchTestCase {
 
-/*
+
 
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-*/
+
 	@Before
 	public void setUp() {
 
@@ -48,7 +48,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	options.setExperimentalOption("prefs", prefs);
 
 
-//	 options.addArguments("--headless", "--disable-gpu");
+	 options.addArguments("--headless", "--disable-gpu");
 
 		setDriver(new ChromeDriver(options));
 
@@ -66,14 +66,14 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 	private void performLogin() {
 
-
+/*
 		getDriver().get("http://localhost:8080/reframe_webui/");
 			$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");
 		$( ButtonElement.class).first().click();
 
-/*
-		getDriver().get("https://test.amplify.calcfocus.net/achieve/oauth2/login/code/cognito");
+*/
+		getDriver().get("https://test.reframe.calcfocus.net/achieve/oauth2/login/code/cognito");
 
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
@@ -85,7 +85,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		//	WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
 		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
 		loginButton.click();
-*/
+
 	}
 }
 

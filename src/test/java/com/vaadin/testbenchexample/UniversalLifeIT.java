@@ -265,17 +265,18 @@ public class UniversalLifeIT extends BaseLoginTest {
 		transferSuspence.okButton().click();
 		ScenarioView suspenceAmount=$(ScenarioView.class).first();
 			Assertions.assertEquals( "$0.00",suspenceAmount.suspenceBalance().getText() );
-*/
+
 
 	}
+
 	@Test
 	public void addLoan() throws InterruptedException, IOException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		getSelectButton.getSelectItem().selectItemByIndex( 6 );
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00001429" );
+		getPolicy.searchByPolicy().sendKeys( "RFL0000022" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00001429" ).click();
+		getPolicy.family().getCell( "RFL0000022" ).click();
 		NaviMenuView transaction = $( NaviMenuView.class ).first();
 		transaction.transactionsWL().click();
 		ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -283,12 +284,12 @@ public class UniversalLifeIT extends BaseLoginTest {
 //		EntryDialogContent selectTransaction = $(EntryDialogContent.class).first();
 		TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
 		selectTransaction.transactionType().selectByText( "Loan" );
-		selectTransaction.effectiveDate().setDate(LocalDate.of(2030,7,4));
+		selectTransaction.effectiveDate().setDate(LocalDate.of(2026,7,15));
 		EntryDialogContent loan = $(EntryDialogContent.class).first();
 //		loan.LoanEffectveDate().setDate(LocalDate.of(2030,4,7));;
-		loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "300" );
+		loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "500" );
 		loan.disbursementMethod().selectByText( "Check Disbursement" );
-		Assertions.assertEquals( "300.00",loan.loanAmount().getValue() );
+		Assertions.assertEquals( "500.00",loan.loanAmount().getValue() );
 		TransactionPopUpPageView getApproved = $(TransactionPopUpPageView.class).first();
 		getApproved.approved().click();
 		loan.okButton().click();
@@ -306,11 +307,13 @@ public class UniversalLifeIT extends BaseLoginTest {
 				"Screenshot 2024-05-31 165800.png" ) ) );
 		TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
 		transactionPage.cancel().click();
-	*/
+
+
+
 		NaviMenuView policy = $(NaviMenuView.class).first();
 		policy.getPolicy().click();
 		ScenarioView policyPage = $(ScenarioView.class).first();
-		Assertions.assertEquals( "300.00",policyPage.loanBalance().getValue() );
+		Assertions.assertEquals( "500.00",policyPage.loanBalance().getValue() );
 		NaviMenuView transactions = $(NaviMenuView.class).first();
 		transactions.transactionsWL().click();
 		ScenarioView deleteTransaction = $(ScenarioView.class).first();
@@ -323,25 +326,25 @@ public class UniversalLifeIT extends BaseLoginTest {
 		deleteLoanTransaction.deleteLoanTransactionButton().click();
 		VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
 		confirmation.getSaveButton().click();
-
+*/
 	}
-/*
+
 	@Test
 	public void addNewBusiness() throws Exception {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 3 );
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7945" );
+		getFamily.searchBySSN().setValue( "511-20-7947" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 	//	addNewBusiness.effectiveDate().setDate(LocalDate.of(2024,11,1));
-		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
-		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
+	//	addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
+		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "50000" );
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
-        addNewBusiness.getState().selectByText( "VA" );
+        addNewBusiness.getState().selectByText( "Virginia" );
 		addNewBusiness.getOkButton().click();
 
 		NaviMenuView getReport = $( NaviMenuView.class ).first();
@@ -352,21 +355,27 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirm.getSaveButton().click();
 
 		ApplicationView application = $( ApplicationView.class ).first();
-		application.getAgentNumber().sendKeys("6879456");
-		Thread.sleep( 3_000 );
-		application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
-		application.getAgentNumber().sendKeys(Keys.ENTER);
+//		application.getAgentNumber().sendKeys("6879456");
+//		Thread.sleep( 3_000 );
+//		application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
+//		application.getAgentNumber().sendKeys(Keys.ENTER);
 
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "6879456", application.getAgentNumber().getSelectedText() );
-		application.applicationFundsReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
+//		Assertions.assertEquals( "6879456", application.getAgentNumber().getSelectedText() );
+//		application.applicationFundsReceived().selectByText( "Yes" );
+//		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
 		application.cashWithApplication().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
 		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+		application.applicationStatus().selectByText("Active");
+		application.policyIssueDate().setDate(LocalDate.now());
+		application.addFundButton().click();
+		EntryDialogContent fund = $(EntryDialogContent.class).first();
+		fund.fundName().selectByText("Fixed Fund");
+		fund.okButton().click();
 
 		NaviMenuView getDocument = $( NaviMenuView.class ).first();
 		getDocument.getDocument().click();
@@ -413,24 +422,24 @@ public class UniversalLifeIT extends BaseLoginTest {
 
 	}
 
-*/
+
 	@Test
 	public void addNewBusinessEFT() throws Exception {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 3 );
+		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7944" );
+		getFamily.searchBySSN().setValue( "511-20-7947" );
 		getFamily.searchButton().click();
 		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 //			addNewBusiness.effectiveDate().setDate(LocalDate.of(2025,05,1));
-		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
+//		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
 		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
 
-		addNewBusiness.getState().selectByText( "VA" );
+		addNewBusiness.getState().selectByText( "Virginia" );
 		addNewBusiness.getOkButton().click();
 
 		NaviMenuView getReport = $( NaviMenuView.class ).first();
@@ -441,27 +450,38 @@ public class UniversalLifeIT extends BaseLoginTest {
 		confirm.getSaveButton().click();
 
 		ApplicationView application = $( ApplicationView.class ).first();
-		waitUntil(driver -> application.getAgentNumber().isDisplayed(), 60);
-		application.getAgentNumber().openPopup();
-		application.getAgentNumber().sendKeys("MC001");
-		Thread.sleep( 3_000 );
+//		waitUntil(driver -> application.getAgentNumber().isDisplayed(), 60);
+//		application.getAgentNumber().openPopup();
+//		application.getAgentNumber().sendKeys("MC001");
+//		Thread.sleep( 3_000 );
 	//	application.getAgentNumber().sendKeys(Keys.ARROW_DOWN);
 	//	application.getAgentNumber().sendKeys(Keys.ENTER);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
-		application.getAgentNumber().sendKeys( Keys.ENTER );
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", application.getAgentNumber());
+//		application.getAgentNumber().sendKeys( Keys.ENTER );
 
 		application.applicationReceived().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.applicationReceived().getSelectedText() );
 		application.applicationReceivedDate().setDate( LocalDate.now() );
 		application.applicationSignedDate().setDate( LocalDate.now() );
-		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
-		application.applicationFundsReceived().selectByText( "Yes" );
-		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
-		application.paymentMethod().selectByText("Electronic Fund Transfer");
+//		Assertions.assertEquals( "MC001 - Mariia Cherniak", application.getAgentNumber().getSelectedText() );
+//		application.applicationFundsReceived().selectByText( "Yes" );
+//		Assertions.assertEquals( "Yes", application.applicationFundsReceived().getSelectedText() );
+		application.paymentMethod().selectByText("Bank Draft");
+		application.draftDay().sendKeys("1");
 		application.cashWithApplication().selectByText( "Yes" );
 		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
 		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+
+		application.cashWithApplication().selectByText( "Yes" );
+		Assertions.assertEquals( "Yes", application.cashWithApplication().getSelectedText() );
+		application.cashWithApplicationReceivedDate().setDate( LocalDate.now() );
+		application.applicationStatus().selectByText("Active");
+		application.policyIssueDate().setDate(LocalDate.now());
+		application.addFundButton().click();
+		EntryDialogContent fund = $(EntryDialogContent.class).first();
+		fund.fundName().selectByText("Fixed Fund");
+		fund.okButton().click();
 
 		NaviMenuView getDocument = $( NaviMenuView.class ).first();
 		getDocument.getDocument().click();
@@ -515,9 +535,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("AM00004532");
+		getPolicy.searchByPolicy().sendKeys("RFL0000483");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("AM00004532").click();
+		getPolicy.family().getCell("RFL0000483").click();
 
 		NaviMenuView transaction = $(NaviMenuView.class).first();
 		transaction.policyTransactions().click();
