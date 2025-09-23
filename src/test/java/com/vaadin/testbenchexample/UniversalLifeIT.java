@@ -227,11 +227,11 @@ public class UniversalLifeIT extends BaseLoginTest {
 	@Test
 	public void addSuspense() throws InterruptedException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectItemByIndex( 4 );
+		getSelectButton.getSelectItem().selectByText("Search Policy");
 		SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-		getPolicy.searchByPolicy().sendKeys( "AM00004308" );
+		getPolicy.searchByPolicy().sendKeys( "RFL0000583" );
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell( "AM00004308" ).click();
+		getPolicy.family().getCell( "RFL0000583" ).click();
 		NaviMenuView addSuspense = $( NaviMenuView.class ).first();
 		addSuspense.suspense().click();
 		ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -241,7 +241,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		Assertions.assertEquals( "100",suspenseSource.suspenseAmount().getValue() );
 		suspenseSource.suspenseSource().selectByText( "Check" );
 		Assertions.assertEquals( "Check",suspenseSource.suspenseSource().getSelectedText() );
-		suspenseSource.depositAccount().selectByText( "General Premium" );
+		suspenseSource.depositAccount().selectByText( "Lockbox" );
 		suspenseSource.processButton().click();
 	/*
 		ScenarioView checkSuspence=$(ScenarioView.class).first();
