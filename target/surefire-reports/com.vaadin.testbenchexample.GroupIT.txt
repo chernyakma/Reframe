@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.vaadin.testbenchexample.GroupIT
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.057 s - in com.vaadin.testbenchexample.GroupIT

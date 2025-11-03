@@ -6,6 +6,7 @@ com\vaadin\testbenchexample\UniversalLifeIT.class
 com\vaadin\testbenchexample\WholeLifeIT.class
 com\vaadin\testbenchexample\ScenarioView.class
 com\vaadin\testbenchexample\ApplicationView.class
+com\vaadin\testbenchexample\PolicyBillIT.class
 com\vaadin\testbenchexample\TransactionViewPage.class
 com\vaadin\testbenchexample\AddFamilyIT.class
 com\vaadin\testbenchexample\FamiliesIT.class

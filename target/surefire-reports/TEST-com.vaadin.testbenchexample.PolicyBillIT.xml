@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.vaadin.testbenchexample.AddFamilyIT" time="170.55" tests="8" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.vaadin.testbenchexample.PolicyBillIT" time="61.847" tests="3" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -61,72 +61,29 @@
     <property name="maven.test.failure.ignore" value="true"/>
     <property name="webdriver.http.factory" value="jdk-http-client"/>
   </properties>
-  <testcase name="addBank" classname="com.vaadin.testbenchexample.AddFamilyIT" time="14.69">
-    <system-err><![CDATA[Nov 03, 2025 1:35:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="payEFT" classname="com.vaadin.testbenchexample.PolicyBillIT" time="11.253">
+    <system-err><![CDATA[Nov 03, 2025 1:38:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:35:26 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Nov 03, 2025 1:38:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="addFamily" classname="com.vaadin.testbenchexample.AddFamilyIT" time="11.183">
-    <system-err><![CDATA[Nov 03, 2025 1:35:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="payDirectBill" classname="com.vaadin.testbenchexample.PolicyBillIT" time="40.166">
+    <system-err><![CDATA[Nov 03, 2025 1:39:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:35:37 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Nov 03, 2025 1:39:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="addOtherRoles" classname="com.vaadin.testbenchexample.AddFamilyIT" time="40.958">
-    <system-err><![CDATA[Nov 03, 2025 1:35:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:35:49 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
-  </testcase>
-  <testcase name="addSpouse" classname="com.vaadin.testbenchexample.AddFamilyIT" time="14.676">
-    <system-err><![CDATA[Nov 03, 2025 1:36:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:36:29 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
-  </testcase>
-  <testcase name="addBeneficiary" classname="com.vaadin.testbenchexample.AddFamilyIT" time="27.369">
-    <system-err><![CDATA[Nov 03, 2025 1:36:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:36:44 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
-  </testcase>
-  <testcase name="addNewOwner" classname="com.vaadin.testbenchexample.AddFamilyIT" time="29.249">
-    <system-err><![CDATA[Nov 03, 2025 1:37:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:37:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
-  </testcase>
-  <testcase name="editAddress" classname="com.vaadin.testbenchexample.AddFamilyIT" time="19.065">
-    <system-err><![CDATA[Nov 03, 2025 1:37:43 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:37:43 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-]]></system-err>
-  </testcase>
-  <testcase name="familyAddress" classname="com.vaadin.testbenchexample.AddFamilyIT" time="13.326">
-    <error message="No element with tag &lt;vaadin-button&gt; found using index 4&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception&#10;Build info: version: &apos;4.18.0&apos;, revision: &apos;b6bf9de7cc*&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException"><![CDATA[org.openqa.selenium.NoSuchElementException: 
-No element with tag <vaadin-button> found using index 4
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.18.0', revision: 'b6bf9de7cc*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: driver.version: unknown
-	at com.vaadin.testbench.ElementQuery.get(ElementQuery.java:324)
-	at com.vaadin.testbenchexample.ScenarioView.getDeleteSpouseAddressButton(ScenarioView.java:95)
-	at com.vaadin.testbenchexample.ScenarioView_$$_jvst114_9._d62getDeleteSpouseAddressButton(ScenarioView_$$_jvst114_9.java)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at com.vaadin.testbench.TestBench$ElementInvocationHandler.invoke(TestBench.java:83)
-	at com.vaadin.testbenchexample.ScenarioView_$$_jvst114_9.getDeleteSpouseAddressButton(ScenarioView_$$_jvst114_9.java)
-	at com.vaadin.testbenchexample.AddFamilyIT.familyAddress(AddFamilyIT.java:169)
+  <testcase name="addSuspense" classname="com.vaadin.testbenchexample.PolicyBillIT" time="10.427">
+    <failure message="expected: &lt;$100.00&gt; but was: &lt;$436.54&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <$100.00> but was: <$436.54>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.vaadin.testbenchexample.PolicyBillIT.addSuspense(PolicyBillIT.java:97)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -170,10 +127,10 @@ Driver info: driver.version: unknown
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-]]></error>
-    <system-err><![CDATA[Nov 03, 2025 1:38:00 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+]]></failure>
+    <system-err><![CDATA[Nov 03, 2025 1:39:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 141
-Nov 03, 2025 1:38:00 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Nov 03, 2025 1:39:51 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 141.0.7390.123. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.18.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>

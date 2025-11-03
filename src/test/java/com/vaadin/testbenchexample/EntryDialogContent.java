@@ -53,7 +53,10 @@ public class EntryDialogContent extends TestBenchElement {
 	protected SelectElement getAccountType() {
 		return $( TestBenchElement.class ).id( "FinancialInstitutionInfoSection" ).$(SelectElement.class).id( "AccountType" );
 	}
-
+    // premium transaction
+	protected SelectElement accountSubType (){
+		return $(TestBenchElement.class).id( "PremiumSection" ).$(SelectElement.class).id( "AccountSubTypeName" );
+	}
 
 	// buttons
 
