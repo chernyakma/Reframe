@@ -10,6 +10,7 @@ com\vaadin\testbenchexample\TransactionViewPage.class
 com\vaadin\testbenchexample\AddFamilyIT.class
 com\vaadin\testbenchexample\FamiliesIT.class
 com\vaadin\testbenchexample\BaseLoginTest.class
+com\vaadin\testbenchexample\GroupIT.class
 com\vaadin\testbenchexample\AddFamilyView.class
 com\vaadin\testbenchexample\NewIllustrationView.class
 com\vaadin\testbenchexample\IllustrationView.class

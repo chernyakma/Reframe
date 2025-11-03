@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
+import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
@@ -59,9 +60,14 @@ public class EntryDialogContent extends TestBenchElement {
 	protected ButtonElement okButton (){
 		return $(ButtonElement.class).first();
 	}
-	protected ButtonElement closeButton (){	return $(ButtonElement.class).last();}
+	protected ButtonElement closeButton (){	return $(ButtonElement.class).last();
+	}
 
-	protected ButtonElement processButton (){	return $(ButtonElement.class).first();}
+	protected ButtonElement processButton (){	return $(ButtonElement.class).first();
+	}
+	protected ButtonElement addAgentHierarchy(){
+		return $(TestBenchElement.class).id("S0" ).$(TestBenchElement.class).id("HierarchyTable").$(ButtonElement.class).first();
+	}
 
 
 	// notes
@@ -190,6 +196,70 @@ public class EntryDialogContent extends TestBenchElement {
 	protected SelectElement fundName(){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("FundCode");
 	}
+	//address
+	protected TextFieldElement line1 (){
+		return $(TestBenchElement.class).id("S0" ).$(TextFieldElement.class).id("Line1");
+	}
+	protected TextFieldElement city (){
+		return $(TestBenchElement.class).id("S0" ).$(TextFieldElement.class).id("City");
+	}
+	protected TextFieldElement zip (){
+		return $(TestBenchElement.class).id("S0" ).$(TextFieldElement.class).id("Zip");
+	}
+	protected SelectElement state (){
+		return $(TestBenchElement.class).id("S0" ).$(SelectElement.class).id("State");
+	}
+	protected SelectElement type (){
+		return $(TestBenchElement.class).id("S0" ).$(SelectElement.class).id("AddressType");
+	}
+
+	//agentHierarchy
+	protected TextFieldElement hierarchyName (){
+		return $(TestBenchElement.class).id("NameSection" ).$(TextFieldElement.class).id("Name");
+	}
+	protected ComboBoxElement agentNumber(){
+		return $(TestBenchElement.class).id("S0" ).$(ComboBoxElement.class).id("AgentNumber");
+	}
+	protected SelectElement agentLevel(){
+		return $(TestBenchElement.class).id("S0" ).$(SelectElement.class).id("AgentLevel");
+	}
+	protected TestBenchElement agentNumber1(){
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(9);
+	}
+	protected TestBenchElement agentLevel1(){
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(10);
+	}
+	protected TestBenchElement agentNumber2() {
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(12);
+	}
+	protected TestBenchElement agentLevel2() {
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(13);
+	}
+
+	protected TestBenchElement agentNumber3() {
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(15);
+	}
+	protected TestBenchElement agentLevel3() {
+		return $(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("HierarchyTable").$("vaadin-grid-cell-content").get(16);
+	}
+	protected ComboBoxElement searchAgentNumber(){
+		return $(TestBenchElement.class).id("S0" ).$(ComboBoxElement.class).id("AgentNumberHierarchyGUID");
+	}
+	protected SelectElement commissionSchedule(){
+		return $(TestBenchElement.class).id("S0" ).$(SelectElement.class).id("Contract");
+	}
+	protected TextFieldElement writingAgentName() {
+		return $(TestBenchElement.class).id("S0").$(TextFieldElement.class).id("AgentName");
+	}
+
+
+
+	public void addAddress(String line1,String city,String zip){
+		line1().sendKeys(line1);
+		city().sendKeys(city);
+	    zip().sendKeys(zip);
+}
+
 
 
 	public void addBeneficiary (String firstName,String lastName,String ssn,String email,String phoneNumber){
@@ -211,3 +281,42 @@ public class EntryDialogContent extends TestBenchElement {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

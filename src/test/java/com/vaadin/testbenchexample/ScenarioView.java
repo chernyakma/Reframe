@@ -25,6 +25,11 @@ public class ScenarioView extends TestBenchElement {
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(ButtonElement.class).first();
 
 	}
+	protected ButtonElement getGroupSaveButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("group-edit-page").first().$(ButtonElement.class).first();
+
+	}
 	// add buttons
 	protected ButtonElement getAddButton() {
 
@@ -44,6 +49,14 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement addMemberButton() {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("Members").$(ButtonElement.class).first();
+	}
+	protected ButtonElement addAgentHierarchiesButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("simple-page").first().$(TestBenchElement.class).id("Hierarchies").$(ButtonElement.class).first();
+	}
+	protected ButtonElement addAgentButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("GroupCommissionProfileSection").$(TestBenchElement.class).id("GroupCommissionProfileTable").$(ButtonElement.class).first();
 	}
 
 	// edit buttons
@@ -73,9 +86,9 @@ public class ScenarioView extends TestBenchElement {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S0").$(TestBenchElement.class).id("BeneficiaryTable").$(TestBenchElement.class).id("grid").$(ButtonElement.class).get(3);
 	}
-	protected ButtonElement getDeleteButton() {
+	protected ButtonElement getCancelAgentButton() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(3);
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("agent-number-page").first().$(TestBenchElement.class).id("buttons").$(ButtonElement.class).get(1);
 	}
 	protected ButtonElement getDeleteSpouseAddressButton() {
 
@@ -100,6 +113,13 @@ public class ScenarioView extends TestBenchElement {
 	protected ButtonElement getDeleteFamilyBeneButton() {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("family-member-page").first().$(TestBenchElement.class).id("membersDiv").$(TestBenchElement.class).id("Members").$(TestBenchElement.class).id("section").$("search-component").first().$(ButtonElement.class).get(3);
+	}
+	protected ButtonElement getDeleteButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("saveable-page").first().$(TestBenchElement.class).id("S1").$(TestBenchElement.class).id("FamilyAddressTable").$(ButtonElement.class).get(3);
+	}
+	protected ButtonElement deleteGroupButton(){
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(ButtonElement.class).first();
 	}
 
 //policy
@@ -200,6 +220,84 @@ public class ScenarioView extends TestBenchElement {
 	protected GridElement family (){
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "family-member-page" ).first().$( TestBenchElement.class ).id( "membersDiv" ).$( TestBenchElement.class ).id( "Members" ).$( TestBenchElement.class ).id( "section" ).$( "search-component" ).first().$(GridElement.class).first();
 	}
+	//agent
+	protected TextFieldElement officeCode (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(TextFieldElement.class).id("OfficeCode");
+	}
+	protected SelectElement officeType (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(SelectElement.class).id("OfficeType");
+	}
+	protected TextFieldElement firstName (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(TextFieldElement.class).id("FirstName");
+	}
+	protected TextFieldElement lastName (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(TextFieldElement.class).id("LastName");
+	}
+	protected TextFieldElement email (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(TextFieldElement.class).id("Email");
+	}
+
+	protected DatePickerElement dob (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "OfficeInfoSection" ).$(DatePickerElement.class).id("DateOfBirth");
+	}
+	protected ButtonElement addAddressButton (){
+
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$(TestBenchElement.class).id( "AddressSection" ).$(TestBenchElement.class).id("Addresses").$(ButtonElement.class).first();
+	}
+
+	protected TestBenchElement addressLine1 (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "agent-number-page" ).first().$( TestBenchElement.class ).id( "AddressSection" ).$( TestBenchElement.class ).id( "Addresses" ).$(GridElement.class).first().$("vaadin-grid-cell-content").get(22);
+	}
+	protected TestBenchElement agentName (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "GroupCommissionProfileSection" ).$( TestBenchElement.class ).id( "GroupCommissionProfileTable" ).$(GridElement.class).first().$("vaadin-grid-cell-content").get(12);
+	}
+	protected TestBenchElement levelSchedule (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "saveable-page" ).first().$( TestBenchElement.class ).id( "GroupCommissionProfileSection" ).$( TestBenchElement.class ).id( "GroupCommissionProfileTable" ).$(GridElement.class).first().$("vaadin-grid-cell-content").get(13);
+	}
+
+//group
+    protected TextFieldElement groupCode (){
+	    return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "code" ).$( TextFieldElement.class ).first();
+	}
+	protected TextFieldElement groupName (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( TextFieldElement.class ).id("FullName");
+	}
+	protected TextFieldElement groupNameDBA (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( TextFieldElement.class ).id("DoingBusinessAs");
+	}
+	protected TextFieldElement taxID (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( TextFieldElement.class ).id("TaxID");
+	}
+	protected SelectElement businessType (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( SelectElement.class ).id("BusinessEntityType");
+	}
+	protected TextFieldElement groupEmail (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( TextFieldElement.class ).id("Email");
+	}
+	protected DatePickerElement groupEfDate (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupInformationSection" ).$( DatePickerElement.class ).id("GroupEffectiveDate");
+	}
+	protected SelectElement groupStateOfInt (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupPlanSection" ).$( SelectElement.class ).id("StateOfInterview");
+	}
+	protected SelectElement employeeListBill (){
+		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "fieldLayout" ).$( "group-edit-page" ).first().$( TestBenchElement.class ).id( "GroupPlanSection" ).$( SelectElement.class ).id("ListBillEmployeeMatchType");
+	}
+
+	public void addGroup(String code,String name,String nameDBA,String email,String taxID){
+		groupCode().sendKeys(code);
+		groupName().sendKeys(name);
+		groupNameDBA().sendKeys(nameDBA);
+		groupEmail().sendKeys(email);
+		taxID().sendKeys(taxID);
+	}
+
 
 }
 

@@ -102,4 +102,12 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).first();
 	}
+	protected TestBenchElement getAgentHierarchies() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(9);
+	}
+	protected TestBenchElement getAgent() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(24);
+	}
 }
