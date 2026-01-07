@@ -22,9 +22,9 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("RFL0000483");
+        getPolicy.searchByPolicy().sendKeys("RFL0001019");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("RFL0000483").click();
+        getPolicy.family().getCell("RFL0001019").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
@@ -112,9 +112,9 @@ public class PolicyBillIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItem().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("RFL0000583");
+        getPolicy.searchByPolicy().sendKeys("RFL0001020");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("").click();
+        getPolicy.family().getCell("RFL0001020").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
@@ -125,7 +125,7 @@ public class PolicyBillIT extends BaseLoginTest {
         selectTransaction.transactionType().selectByText("Premium");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 //        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "114.45");
-        premium.accountSubType().selectByText("Lockbox");
+        premium.accountSubType().selectByText("Agent Balance");
  //       TransactionPopUpPageView notes = $(TransactionPopUpPageView.class).first();
  //       notes.note().sendKeys( "123" );
 //		premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
@@ -141,7 +141,7 @@ public class PolicyBillIT extends BaseLoginTest {
         String updatedText = transactionsPage.policyPaidToDate().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
-        Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseLoanTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();

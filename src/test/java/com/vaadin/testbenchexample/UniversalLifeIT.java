@@ -87,11 +87,11 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7948" );
+		getFamily.searchBySSN().setValue( "935-47-5889" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Palmer" ).click();
+		getFamily.family().getCell( "Morgan" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
-		newBusiness.getNewBusiness().click();
+		newBusiness.getNewBusiness2().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 	//	addNewBusiness.effectiveDate().setDate(LocalDate.of(2024,11,1));
 	//	addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
@@ -183,11 +183,11 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "511-20-7948" );
+		getFamily.searchBySSN().setValue( "294-64-5372" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Palmer" ).click();
+		getFamily.family().getCell( "Russell" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
-		newBusiness.getNewBusiness().click();
+		newBusiness.getNewBusiness2().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 //			addNewBusiness.effectiveDate().setDate(LocalDate.of(2025,05,1));
 //		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
@@ -231,7 +231,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		ApplicationView report = $( ApplicationView.class ).first();
 		report.downloadButton().click();
 		Thread.sleep( 3_000 );
-		application.compareAndDeleteDownloadedPdfFPIUL();
+		application.compareAndDeleteDownloadedPdfFPIULEFT();
 
 		application.threeDotsButton().click();
 		WebElement noteList = findElement( By.xpath( "//*[@class='vaadin-menu-item']" ) );
