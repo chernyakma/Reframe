@@ -87,15 +87,25 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "935-47-5889" );
+		getFamily.searchBySSN().setValue( "511-20-7949" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Morgan" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness2().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
 	//	addNewBusiness.effectiveDate().setDate(LocalDate.of(2024,11,1));
 	//	addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
 		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "50000" );
+		LocalDate today = LocalDate.now();
+		LocalDate effectiveDate;
+
+		if (today.getDayOfMonth() >= 29) {
+			effectiveDate = today.plusMonths(1).withDayOfMonth(1);
+		} else {
+			effectiveDate = today;
+		}
+
+		addNewBusiness.effectiveDate().setDate(effectiveDate);
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
         addNewBusiness.getState().selectByText( "Virginia" );
 		addNewBusiness.getOkButton().click();
@@ -127,7 +137,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		application.policyIssueDate().setDate(LocalDate.now());
 		application.addFundButton().click();
 		EntryDialogContent fund = $(EntryDialogContent.class).first();
-		fund.fundName().selectByText("Fixed Fund");
+		fund.fundName().selectItemByIndex(0);
 		fund.okButton().click();
 
 		NaviMenuView getDocument = $( NaviMenuView.class ).first();
@@ -183,9 +193,9 @@ public class UniversalLifeIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
 		getSelectButton.getSelectItem().selectItemByIndex( 5 );
 		SearchComponentView getFamily = $( SearchComponentView.class ).first();
-		getFamily.searchBySSN().setValue( "294-64-5372" );
+		getFamily.searchBySSN().setValue( "511-20-7949" );
 		getFamily.searchButton().click();
-		getFamily.family().getCell( "Russell" ).click();
+		getFamily.family().getCell( "Palmer" ).click();
 		NaviMenuView newBusiness = $( NaviMenuView.class ).first();
 		newBusiness.getNewBusiness2().click();
 		NewIllustrationView addNewBusiness = $( NewIllustrationView.class ).first();
@@ -193,7 +203,16 @@ public class UniversalLifeIT extends BaseLoginTest {
 //		addNewBusiness.getProductType().selectByText( "Indexed Universal Life" );
 		addNewBusiness.getFaceAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "100000" );
 //		addNewBusiness.getInsured().selectItemByIndex( 0 );
+		LocalDate today = LocalDate.now();
+		LocalDate effectiveDate;
 
+		if (today.getDayOfMonth() >= 29) {
+			effectiveDate = today.plusMonths(1).withDayOfMonth(1);
+		} else {
+			effectiveDate = today;
+		}
+
+		addNewBusiness.effectiveDate().setDate(effectiveDate);
 		addNewBusiness.getState().selectByText( "Virginia" );
 		addNewBusiness.getOkButton().click();
 
@@ -223,7 +242,7 @@ public class UniversalLifeIT extends BaseLoginTest {
 		application.policyIssueDate().setDate(LocalDate.now());
 		application.addFundButton().click();
 		EntryDialogContent fund = $(EntryDialogContent.class).first();
-		fund.fundName().selectByText("Fixed Fund");
+		fund.fundName().selectItemByIndex(0);
 		fund.okButton().click();
 
 		NaviMenuView getDocument = $( NaviMenuView.class ).first();

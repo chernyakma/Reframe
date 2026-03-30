@@ -22,9 +22,9 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItem().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("RFL0001019");
+        getPolicy.searchByPolicy().sendKeys("RFL0000153");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("RFL0001019").click();
+        getPolicy.family().getCell("RFL0000153").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
@@ -78,9 +78,9 @@ public class PolicyBillIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItem().selectByText("Search Policy");
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "RFL0000583" );
+        getPolicy.searchByPolicy().sendKeys( "RFL0000154" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "RFL0000583" ).click();
+        getPolicy.family().getCell( "RFL0000154" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.suspense().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
@@ -105,6 +105,10 @@ public class PolicyBillIT extends BaseLoginTest {
         deleteTransaction.deleteLoanTransactionButton().click();
         VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
         confirmation.getSaveButton().click();
+        NaviMenuView checkSuspense2 = $( NaviMenuView.class ).first();
+        checkSuspense2.suspense().click();
+        ScenarioView checkSuspence3=$(ScenarioView.class).first();
+        Assertions.assertEquals( "$0.00",checkSuspence3.suspenceBalance().getText() );
 
     }
     @Test
@@ -112,9 +116,9 @@ public class PolicyBillIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItem().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("RFL0001020");
+        getPolicy.searchByPolicy().sendKeys("RFL0000155");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("RFL0001020").click();
+        getPolicy.family().getCell("RFL0000155").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();

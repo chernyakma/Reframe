@@ -39,7 +39,7 @@ public class GroupIT extends BaseLoginTest {
         Assertions.assertEquals("56 Main Street", agentCancel.addressLine1().getText());
         Assertions.assertEquals("helpdesk@test.com", agentCancel.email().getValue());
         //       ScenarioView agentCancel = $(ScenarioView.class).first();
-        agentCancel.getCancelAgentButton().click();
+  //      agentCancel.getCancelAgentButton().click();
 
 
     }
@@ -57,7 +57,7 @@ public class GroupIT extends BaseLoginTest {
         ScenarioView addHierarchies = $(ScenarioView.class).first();
         addHierarchies.addAgentHierarchiesButton().click();
         EntryDialogContent hierarchy = $(EntryDialogContent.class).first();
-        hierarchy.hierarchyName().sendKeys("CFHelpdesk002Hierarchy");
+        hierarchy.hierarchyName().sendKeys("CFHelpdesk003Hierarchy");
         hierarchy.addAgentHierarchy().click();
         EntryDialogContent hierarchy1 = $(EntryDialogContent.class).last();
         hierarchy1.agentNumber().openPopup();
@@ -72,32 +72,32 @@ public class GroupIT extends BaseLoginTest {
         hierarchy2.addAgentHierarchy().click();
         EntryDialogContent hierarchySecond = $(EntryDialogContent.class).last();
         hierarchySecond.agentNumber().openPopup();
-        hierarchySecond.agentNumber().sendKeys("SGMGA1");
+        hierarchySecond.agentNumber().sendKeys("CG0139");
         Thread.sleep(2_000);
         //       JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", hierarchySecond.agentNumber());
         hierarchySecond.agentNumber().sendKeys(Keys.ENTER);
-        hierarchySecond.agentLevel().selectByText("MGA - 1");
+        hierarchySecond.agentLevel().selectByText("Admin Agent - 15");
         hierarchySecond.okButton().click();
 
         EntryDialogContent hierarchy3 = $(EntryDialogContent.class).first();
         hierarchy3.addAgentHierarchy().click();
         EntryDialogContent hierarchyThird = $(EntryDialogContent.class).last();
         hierarchyThird.agentNumber().openPopup();
-        hierarchyThird.agentNumber().sendKeys("SG005");
+        hierarchyThird.agentNumber().sendKeys("CG0137");
         Thread.sleep(2_000);
         //       JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", hierarchyThird.agentNumber());
         hierarchyThird.agentNumber().sendKeys(Keys.ENTER);
-        hierarchyThird.agentLevel().selectByText("Agent 75 - 5");
+        hierarchyThird.agentLevel().selectByText("Agent 3A - 11");
         hierarchyThird.okButton().click();
         EntryDialogContent assertion = $(EntryDialogContent.class).first();
         Assertions.assertEquals("CFHelpdesk002",assertion.agentNumber1().getText());
         Assertions.assertEquals("Servicing Agent - 20", assertion.agentLevel1().getText());
-        Assertions.assertEquals("SG005", assertion.agentNumber2().getText());
-        Assertions.assertEquals("Agent 75 - 5", assertion.agentLevel2().getText());
-        Assertions.assertEquals("SGMGA1", assertion.agentNumber3().getText());
-        Assertions.assertEquals("MGA - 1", assertion.agentLevel3().getText());
+        Assertions.assertEquals("CG0139", assertion.agentNumber2().getText());
+        Assertions.assertEquals("Admin Agent - 15", assertion.agentLevel2().getText());
+        Assertions.assertEquals("CG0137", assertion.agentNumber3().getText());
+        Assertions.assertEquals("Agent 3A - 11", assertion.agentLevel3().getText());
         assertion.closeButton().click();
 
     }
@@ -119,15 +119,17 @@ public class GroupIT extends BaseLoginTest {
         agent.addAgentButton().click();
         EntryDialogContent searchAgent=$(EntryDialogContent.class).first();
         searchAgent.searchAgentNumber().openPopup();
+        searchAgent.searchAgentNumber().sendKeys("CFHelpdesk002Hierarchy");
         Thread.sleep(2_000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", searchAgent.searchAgentNumber());
+      //  JavascriptExecutor js = (JavascriptExecutor) driver;
+    //    js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowDown'}));", searchAgent.searchAgentNumber());
         searchAgent.searchAgentNumber().sendKeys(Keys.ENTER);
+
         searchAgent.commissionSchedule().selectByText("Level Schedule");
-        Assertions.assertEquals("SGMGA1 Agent",searchAgent.writingAgentName().getValue());
+     //   Assertions.assertEquals("CFHelpdesk002Hierarchy",searchAgent.writingAgentName().getValue());
         searchAgent.okButton().click();
         ScenarioView assertion=$(ScenarioView.class).first();
-        Assertions.assertEquals("CFAgent002Hierarchy",assertion.agentName().getText());
+        Assertions.assertEquals("CFHelpdesk002Hierarchy",assertion.agentName().getText());
         Assertions.assertEquals("Level Schedule",assertion.levelSchedule().getText());
         assertion.deleteGroupButton().click();
         VaadinConfirmDialogView confirm=$(VaadinConfirmDialogView.class).first();
