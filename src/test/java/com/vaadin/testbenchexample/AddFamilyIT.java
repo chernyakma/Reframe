@@ -276,9 +276,9 @@ public class AddFamilyIT extends BaseLoginTest {
 		VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
 		getSelectButton.getSelectItem().selectByText("Search Policy");
 		SearchComponentView getPolicy = $(SearchComponentView.class).first();
-		getPolicy.searchByPolicy().sendKeys("RFL0000151");
+		getPolicy.searchByPolicy().sendKeys("RFL0000157");
 		getPolicy.searchButton().click();
-		getPolicy.family().getCell("RFL0000151").click();
+		getPolicy.family().getCell("RFL0000157").click();
 		NaviMenuView getOwner = $(NaviMenuView.class).first();
 		getOwner.payorAndOwner().click();
 		Thread.sleep(3_000);
@@ -303,7 +303,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		family.getFamily().click();
 		ScenarioView checkOwner = $(ScenarioView.class).first();
 		Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
-		checkOwner.policyNumber().getCell("RFL0000151").click();
+		checkOwner.policyNumber().getCell("RFL0000157").click();
 		NaviMenuView ownerAndPayor = $(NaviMenuView.class).first();
 		ownerAndPayor.payorAndOwner().click();
 		ScenarioView changeOwner = $(ScenarioView.class).first();
@@ -318,7 +318,7 @@ public class AddFamilyIT extends BaseLoginTest {
 		deleteOwner.getDeleteFamilyOwner().click();
 		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
 		delete.getSaveButton().click();
-		deleteOwner.policyNumber().getCell("RFL0000151").click();
+		deleteOwner.policyNumber().getCell("RFL0000157").click();
 		NaviMenuView transactions = $(NaviMenuView.class).first();
 		transactions.transactions().click();
 		ScenarioView deleteTransaction = $(ScenarioView.class).first();
