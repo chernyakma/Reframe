@@ -1,5 +1,7 @@
 package com.vaadin.testbenchexample;
 import com.vaadin.flow.component.button.testbench.ButtonElement;
+import com.vaadin.flow.component.checkbox.testbench.CheckboxElement;
+import com.vaadin.flow.component.checkbox.testbench.CheckboxGroupElement;
 import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
 import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.grid.testbench.GridElement;
@@ -149,6 +151,10 @@ public class EntryDialogContent extends TestBenchElement {
 	}
 	protected SelectElement disbursementMethod (){
 		return $(TestBenchElement.class).id( "InputsSection" ).$( SelectElement.class).id( "DisbursementMethod" );
+	}
+	protected CheckboxElement approved (){
+
+		return $(TestBenchElement.class).id( "InputsSection" ).$(TestBenchElement.class).id("sectionComponent").$(CheckboxGroupElement.class).id("Approved").$(CheckboxElement.class).first();
 	}
 
 

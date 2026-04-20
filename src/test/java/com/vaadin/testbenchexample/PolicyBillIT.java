@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
+import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -154,6 +155,65 @@ public class PolicyBillIT extends BaseLoginTest {
         waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
 
 //		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        deleteLoanTransaction.deleteLoanTransactionButton().click();
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
+
+    }
+    @Test
+    public void addLoan() throws InterruptedException, IOException {
+        VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
+        getSelectButton.getSelectItem().selectByText("Search Policy");
+        SearchComponentView getPolicy = $(SearchComponentView.class).first();
+        getPolicy.searchByPolicy().sendKeys( "RFL0000297" );
+        getPolicy.searchButton().click();
+        getPolicy.family().getCell( "RFL0000297" ).click();
+        NaviMenuView transaction = $( NaviMenuView.class ).first();
+        transaction.transactions().click();
+        ScenarioView loanTransaction = $(ScenarioView.class).first();
+        loanTransaction.addTransactionButton().click();
+//		EntryDialogContent selectTransaction = $(EntryDialogContent.class).first();
+        TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
+        selectTransaction.transactionType().selectByText( "Loan" );
+        EntryDialogContent loan = $(EntryDialogContent.class).first();
+        loan.loanAmount().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "1000" );
+        TransactionPopUpPageView effDate=$(TransactionPopUpPageView.class).first();
+        effDate.effectiveDate().setDate(LocalDate.of(2028,1,4));
+ //       getSelectButton.getSelectItem().selectByText("Search Policy");
+ //       SearchComponentView getPolicy = $(SearchComponentView.class).first();
+ //       loan.effectiveDate().setDate(LocalDate.of(2028,1,4));
+        loan.disbursementMethod().selectByText( "Check Disbursement" );
+        loan.approved().click();
+        Assertions.assertEquals( "1,000.00",loan.loanAmount().getValue() );
+        loan.okButton().click();
+        ScenarioView processLoanTransaction = $(ScenarioView.class).first();
+        processLoanTransaction.processInitialPremiumTransactionButton().click();
+        VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
+        confirm.getSaveButton().click();
+        ScenarioView transactionsPage = $(ScenarioView.class).first();
+        waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
+	/*
+		transactionsPage.viewLoanTransactionButton().click();
+		Thread.sleep( 5_000 );
+		Assert.assertTrue( testBench().compareScreen( ImageFileUtil.getReferenceScreenshotFile(
+				"Screenshot 2024-05-31 165800.png" ) ) );
+		TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
+		transactionPage.cancel().click();
+	*/
+		NaviMenuView policy = $(NaviMenuView.class).first();
+		policy.getPolicy().click();
+		ScenarioView policyPage = $(ScenarioView.class).first();
+		Assertions.assertEquals( "1,000.00",policyPage.loanBalance().getValue() );
+
+        NaviMenuView transactions = $(NaviMenuView.class).first();
+        transactions.transactions().click();
+        ScenarioView deleteTransaction = $(ScenarioView.class).first();
+        deleteTransaction.reverseLoanTransactionButton().click();
+        Thread.sleep( 5_000 );
+        VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
+        ok.getSaveButton().click();
+        waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
+        ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
         deleteLoanTransaction.deleteLoanTransactionButton().click();
         VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
         confirmation.getSaveButton().click();

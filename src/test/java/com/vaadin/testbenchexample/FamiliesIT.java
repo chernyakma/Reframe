@@ -1,13 +1,151 @@
 package com.vaadin.testbenchexample;
 
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.time.LocalDate;
+import java.util.stream.Stream;
 
 import java.time.LocalDate;
+import java.util.stream.Stream;
 
 public class FamiliesIT extends BaseLoginTest{
 
-    @Test
+    @BeforeEach
+    @Override
+    public void setUp() {
+        super.setUp();
+    }
+
+    @AfterEach
+    public void tearDownDriver() throws Exception {
+        getDriver().quit();
+    }
+
+
+
+    static Stream<Object[]> stateTestCases() {
+        return Stream.of(
+                // { rowIndex, expectedLastName, genderIndex, dob, stateName }
+                new Object[]{ 1,  "Alabama",        1, LocalDate.of(1960,  4,  1), "Alabama"        },
+                new Object[]{ 2,  "Alaska",         1, LocalDate.of(1990,  5,  1), "Alaska"         },
+                new Object[]{ 3,  "Arizona",        1, LocalDate.of(1958,  6, 15), "Arizona"        },
+                new Object[]{ 4,  "Arkansas",       1, LocalDate.of(1987,  8,  1), "Arkansas"       },
+                new Object[]{ 5,  "California",     1, LocalDate.of(1977,  4,  5), "California"     },
+                new Object[]{ 6,  "Colorado",       1, LocalDate.of(1961,  6,  7), "Colorado"       },
+                new Object[]{ 7,  "Connecticut",    1, LocalDate.of(1991,  7, 12), "Connecticut"    },
+                new Object[]{ 8,  "Delaware",       1, LocalDate.of(1990,  8,  4), "Delaware"       },
+                new Object[]{ 9,  "Florida",        1, LocalDate.of(1963,  7, 15), "Florida"        },
+                new Object[]{ 10, "Georgia",        1, LocalDate.of(1999,  9, 23), "Georgia"        },
+                new Object[]{ 11, "Hawaii",         1, LocalDate.of(2000, 10,  1), "Hawaii"         },
+                new Object[]{ 12, "Idaho",          1, LocalDate.of(1985,  6, 14), "Idaho"          },
+                new Object[]{ 13, "Illinois",       1, LocalDate.of(1976,  6, 19), "Illinois"       },
+                new Object[]{ 14, "Indiana",        1, LocalDate.of(1970,  6, 15), "Indiana"        },
+                new Object[]{ 15, "Iowa",           1, LocalDate.of(1965,  8,  3), "Iowa"           },
+                new Object[]{ 16, "Kansas",         1, LocalDate.of(2002,  9, 12), "Kansas"         },
+                new Object[]{ 17, "Kentucky",       1, LocalDate.of(1967,  9, 30), "Kentucky"       },
+                new Object[]{ 18, "Louisiana",      1, LocalDate.of(1966,  9, 24), "Louisiana"      },
+                new Object[]{ 19, "Maine",          1, LocalDate.of(2005,  9, 12), "Maine"          },
+                new Object[]{ 20, "Maryland",       1, LocalDate.of(1987,  9,  6), "Maryland"       },
+                new Object[]{ 21, "Massachusetts",  1, LocalDate.of(1965,  6, 15), "Massachusetts"  },
+                new Object[]{ 22, "Michigan",       1, LocalDate.of(1973,  6,  8), "Michigan"       },
+                new Object[]{ 23, "Minnesota",      1, LocalDate.of(1995,  7,  1), "Minnesota"      },
+                new Object[]{ 24, "Mississippi",    1, LocalDate.of(1980,  8,  5), "Mississippi"    },
+                // gender switches to 0 (Female / Jane) from Missouri onwards
+                new Object[]{ 25, "Missouri",       0, LocalDate.of(1960,  4,  1), "Missouri"       },
+                new Object[]{ 26, "Montana",        0, LocalDate.of(1990,  5,  1), "Montana"        },
+                new Object[]{ 27, "Nebraska",       0, LocalDate.of(1958,  6, 15), "Nebraska"       },
+                new Object[]{ 28, "Nevada",         0, LocalDate.of(1987,  8,  1), "Nevada"         },
+                new Object[]{ 29, "New Hampshire",  0, LocalDate.of(1977,  4,  5), "New Hampshire"  },
+                new Object[]{ 30, "New Jersey",     0, LocalDate.of(1961,  6,  7), "New Jersey"     },
+                new Object[]{ 31, "New Mexico",     0, LocalDate.of(1991,  7, 12), "New Mexico"     },
+                new Object[]{ 32, "New York",       0, LocalDate.of(1990,  8,  4), "New York"       },
+                new Object[]{ 33, "North Carolina", 0, LocalDate.of(1963,  7, 15), "North Carolina" },
+                new Object[]{ 34, "North Dakota",   0, LocalDate.of(1999,  9, 23), "North Dakota"   },
+                new Object[]{ 35, "Ohio",           0, LocalDate.of(2000, 10,  1), "Ohio"           },
+                new Object[]{ 36, "Oklahoma",       0, LocalDate.of(1985,  6, 14), "Oklahoma"       },
+                new Object[]{ 37, "Oregon",         0, LocalDate.of(1976,  6, 19), "Oregon"         },
+                new Object[]{ 38, "Pennsylvania",   0, LocalDate.of(1970,  6, 15), "Pennsylvania"   },
+                new Object[]{ 39, "Rhode Island",   0, LocalDate.of(1965,  8,  3), "Rhode Island"   },
+                // South Carolina (index 40) was not in the original FamiliesIT — skipped
+                new Object[]{ 41, "South Dakota",   0, LocalDate.of(1967,  9, 30), "South Dakota"   },
+                new Object[]{ 42, "Tennessee",      0, LocalDate.of(1966,  9, 24), "Tennessee"      },
+                new Object[]{ 43, "Texas",          0, LocalDate.of(2005,  9, 12), "Texas"          },
+                new Object[]{ 44, "Utah",           0, LocalDate.of(1987,  9,  6), "Utah"           },
+                new Object[]{ 45, "Vermont",        0, LocalDate.of(1965,  6, 15), "Vermont"        },
+                new Object[]{ 46, "Virginia",       0, LocalDate.of(2007,  8,  3), "Virginia"       },
+                new Object[]{ 47, "Washington",     0, LocalDate.of(1973,  6,  8), "Washington"     },
+                new Object[]{ 48, "West Virginia",  0, LocalDate.of(1995,  7,  1), "West Virginia"  },
+                new Object[]{ 49, "Wisconsin",      0, LocalDate.of(1980,  8,  5), "Wisconsin"      },
+                new Object[]{ 50, "Wyoming",        0, LocalDate.of(2001,  9, 18), "Wyoming"        }
+        );
+    }
+
+
+
+    @ParameterizedTest(name = "[{index}] {1}")
+    @MethodSource("stateTestCases")
+    public void addFamilyForState(int excelRowIndex,
+                                  String expectedLastName,
+                                  int genderIndex,
+                                  LocalDate dob,
+                                  String stateName) {
+
+        getDriver().get("https://test.reframe.calcfocus.net/achieve/familyInsured/");
+
+
+        AddFamilyView family = $(AddFamilyView.class).first();
+        family.addFamily(excelRowIndex);
+
+        Assertions.assertEquals(
+                expectedLastName,
+                family.getLastName().getValue(),
+                "Last name should match state name for row " + excelRowIndex
+        );
+
+        family.getSuffix().selectByText("Sr.");
+        family.getGender().selectItemByIndex(genderIndex);
+        family.getDateOfBirth().setDate(dob);
+        family.getSaveButton().click();
+
+        // ── Address ──────────────────────────────────────────────────────────
+        NaviMenuView menu = $(NaviMenuView.class).first();
+        menu.getAddresses().click();
+
+        ScenarioView addressSection = $(ScenarioView.class).first();
+        addressSection.getAddButton().click();
+
+        AddressView address = $(AddressView.class).first();
+        address.getCountry().selectByText("USA");
+
+        // ReframeAddressData.xlsx has no header row, starts at Alabama (row 0),
+        // so address row = excelRowIndex - 1
+        address.addAddress(excelRowIndex - 1);
+
+        address.getState().selectByText(stateName);
+        Assertions.assertEquals(
+                stateName,
+                address.getState().getSelectedText(),
+                "State dropdown should show " + stateName
+        );
+
+        address.getDefaultMailing().click();
+        address.getDefaultBilling().click();
+        address.getDefaultResidence().click();
+        address.getOkButton().click();
+
+        addressSection.getSaveButton().click();
+    }
+}
+/*
+
+@Test
 
     public void addFamilyAlabama() {
 
@@ -1393,5 +1531,5 @@ public class FamiliesIT extends BaseLoginTest{
 }
 
 
-
+*/
 
